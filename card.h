@@ -8,41 +8,20 @@
 #include <iomanip>
 using namespace std;
 
-struct Card{
-    char name[30] = "undefined";
-    unsigned long number = 0;
-    double cash = 0;
-
-    void createCard() {
-        cout << "Input your name: ";
-        cin.getline(name, 30);
-        number = rand() * 1'000'000 + rand();
-        cash = 1'000;
-    }
-
-    void showCard() {
-        cout << "+++++++++++++++++++++++++++++\n";
-        cout << "|\tClient: " << name << endl;
-        cout << "|\tCard:   " << number << endl;
-        cout << "|\tCash:   " << cash << " UAH" << endl;
-        cout << "+++++++++++++++++++++++++++++\n";
-    }
+struct Computer{
+    char name[50] = "undefined";
+    float frequency = 1.2;
+    int RAM = 4;
+    bool DVD_ROM = false;
+    float price = 5000;
     
-    void saveToBinFile(FILE* file){
-        int nameLen = strlen(name) + 1;
-        fwrite(&nameLen, sizeof(int), 1, file);
-        fwrite(&name, sizeof(char), nameLen, file);
-        fwrite(&number, sizeof(long), 1, file);
-        fwrite(&cash, sizeof(double), 1, file);
-    }
-    
-    void loadFromBinFile(FILE* file){
-        int nameLen = 0;
-        fread(&nameLen, sizeof(int), 1, file);
-        fread(&name, sizeof(char), nameLen, file);
-        fread(&number, sizeof(long), 1, file);
-        fread(&cash, sizeof(double), 1, file);
+    void showInfo(){
+        cout<<"Name: "<<name<<".\n";
+        cout<<"Frequency: "<<frequency<<".\n";
+        cout<<"RAM: "<<RAM<<".\n";
+        cout<<"DVD ROM: "<<DVD_ROM<<".\n";
+        cout<<"Price: "<<price<<".\n";
     }
 };
 
-#endif /* card_h */
+#endif
