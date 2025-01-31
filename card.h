@@ -49,10 +49,10 @@ public:
         }
     }
     
-    void dipositCash(double cash){
+    void depositCash(double cash){
         this->cash += cash;
     }
-    void dwithdrawCash(double cash, int PIN){
+    void withdrawCash(double cash, int PIN){
         if (PIN == this->PIN) {
             if (this->cash - cash >= 0) {
                 this->cash -= cash;
