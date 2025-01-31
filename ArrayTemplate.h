@@ -431,20 +431,6 @@ int findLastIf(T *arr, int size, bool(*fP)(T)){
     return index;
 }
 
-struct Student{
-    char name[51] = "";
-    int math = 0;
-    int phys = 0;
-    int info = 0;
-    
-    void showInfo(){
-        std::cout<<"Name: "<<name<<std::endl;
-        std::cout<<"Math: "<<math<<std::endl;
-        std::cout<<"Phys: "<<phys<<std::endl;
-        std::cout<<"Info: "<<info<<std::endl;
-    }
-};
-
 struct Country{
     char name[51] = "";
     char worldPart[51] = "";
@@ -599,34 +585,5 @@ struct Driver{
         }
     }
 };
-
-struct VideoFilm{
-    char name[50] = "";
-    char director[50] = "";
-    char genre[50] = "";
-    int rating = 0;
-    int price = 0;
-    
-    void printFilm(){
-        cout<<"Name: "<<name
-        <<",\nDirector: "<<director
-        <<",\nGenre: "<<genre
-        <<",\nRating: "<<rating
-        <<",\nPrice: "<<price<<"₴.\n\n";
-    }
-};
-
-void sortVideoFilmsArray(VideoFilm *&arr, int size){
-    VideoFilm t;
-    for (int i=0; i<size-1; i++) {
-        for (int j=0; j<size-i-1; j++) {
-            if (arr[j].rating < arr[j+1].rating) {
-                t = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = t;
-            }
-        }
-    }
-}
 
 #endif
